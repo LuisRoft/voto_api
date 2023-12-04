@@ -13,6 +13,7 @@ import java.sql.Timestamp;
 public class Voto {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(updatable = false, nullable = false)
 	private Long id_voto;
 

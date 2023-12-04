@@ -13,6 +13,7 @@ import java.util.List;
 public class Mesa {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(updatable = false, nullable = false)
 	private Long id_mesa;
 

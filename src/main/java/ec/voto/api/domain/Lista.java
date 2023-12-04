@@ -13,6 +13,7 @@ import java.sql.Date;
 public class Lista {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(updatable = false, nullable = false)
 	private Long id_lista;
 

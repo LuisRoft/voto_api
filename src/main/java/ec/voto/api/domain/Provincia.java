@@ -27,7 +27,7 @@ public class Provincia {
 	private String nombre;
 
 	@ManyToOne(cascade = CascadeType.ALL, optional = false)
-	@JoinColumn(name = "pais_id")
+	@JoinColumn(name = "pais_id", nullable = false, unique = true)
 	private Pais pais;
 
 }
