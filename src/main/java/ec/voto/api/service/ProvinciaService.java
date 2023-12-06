@@ -2,6 +2,7 @@ package ec.voto.api.service;
 
 import java.util.Optional;
 
+import ec.voto.api.dto.PaisDTO;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,7 +31,19 @@ public class ProvinciaService extends GenericCrudServiceImpl<Provincia, Provinci
 
 	@Override
 	public ProvinciaDTO mapToDto(Provincia domain) {
-		return modelMapper.map(domain, ProvinciaDTO.class);
+		ProvinciaDTO dto = modelMapper.map(domain, ProvinciaDTO.class);
+		if (domain.getPais() != null) {
+			PaisDTO paisDTO = modelMapper.map(domain.getPais(), PaisDTO.class);
+			dto.setPais(paisDTO);
+			dto.setPais_id(domain.getPais().getId());
+		}
+		return dto;
+	}
+
+	public ProvinciaDTO saveNot(Provincia provincia) {
+		// Lógica para guardar la entidad
+		Provincia savedProvincia = repository.save(provincia);
+		return mapToDto(savedProvincia);
 	}
 
 }

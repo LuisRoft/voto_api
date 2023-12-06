@@ -14,7 +14,9 @@ public class ProvinciaDTO {
 	private Long id;
 	
 	private String nombre;
-	
+
+	private Long pais_id;
+
 	private PaisDTO pais;
 	
 }

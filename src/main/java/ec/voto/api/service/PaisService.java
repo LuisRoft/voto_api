@@ -38,4 +38,8 @@ public class PaisService extends GenericCrudServiceImpl<Pais, PaisDTO> {
 		return entidad;
 	}
 
+	public Optional<Pais> findById(Long id) {
+		return repository.findById(id);
+	}
+
 }
