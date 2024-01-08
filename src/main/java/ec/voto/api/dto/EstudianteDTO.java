@@ -16,7 +16,7 @@ public class EstudianteDTO {
 
 	private String apellido;
 
-	private Integer edad;
+	private Boolean estado_voto;
 
 	private CursoDTO curso;
 }

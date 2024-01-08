@@ -13,4 +13,6 @@ public class MesaDTO {
 	private Long id_mesa;
 
 	private String ubicacion;
+
+	private String nombre;
 }

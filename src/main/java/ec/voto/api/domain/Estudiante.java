@@ -21,8 +21,8 @@ public class Estudiante {
 	@Column(nullable = false, unique = true)
 	private String apellido;
 
-	@Column(nullable = false, unique = true)
-	private Integer edad;
+	@Column(nullable = false, unique = true, columnDefinition = "BOOLEAN DEFAULT false")
+	private Boolean estado_voto;
 
 	@ManyToOne(cascade = CascadeType.ALL, optional = false)
 	@JoinColumn(name = "id_curso")

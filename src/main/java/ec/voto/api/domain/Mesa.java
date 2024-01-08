@@ -19,4 +19,7 @@ public class Mesa {
 
 	@Column(nullable = false, unique = true)
 	private String ubicacion;
+
+	@Column(nullable = false, unique = true)
+	private String nombre;
 }

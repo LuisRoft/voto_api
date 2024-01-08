@@ -45,4 +45,23 @@ public class EstudianteController {
 		return new ResponseEntity<>(new ApiResponseDTO<>(true, service.find(dto)), HttpStatus.OK);
 	}
 
+	@GetMapping(value = "{estado_voto}/archivo/estadoVoto", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Object> buscarPorEstado(@PathVariable("estado_voto") Boolean estadoVoto) {
+		List<EstudianteDTO> list = service.findEstudiantesByEstadoVoto(estadoVoto);
+		ApiResponseDTO<List<EstudianteDTO>> response = new ApiResponseDTO<>(true, list);
+		return new ResponseEntity<>(response, HttpStatus.OK);
+	}
+
+	@DeleteMapping(value = "{id}/archivo/deleteById", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Object> eliminarPorId(@PathVariable("id") long id_estudiante) {
+		try {
+			// Lógica para eliminar el estudiante y sus archivos relacionados
+			service.eliminarEstudiantePorId(id_estudiante);
+			return new ResponseEntity<>(new ApiResponseDTO<>(true, "Estudiante eliminado correctamente"), HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(new ApiResponseDTO<>(false, "Error al eliminar el estudiante: " + e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+
 }
