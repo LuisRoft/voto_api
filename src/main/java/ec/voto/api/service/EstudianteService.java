@@ -25,7 +25,6 @@ public class EstudianteService extends GenericCrudServiceImpl<Estudiante, Estudi
 	private ModelMapper modelMapper = new ModelMapper();
 
 	public void eliminarEstudiantePorId(Long idEstudiante) {
-		// Finalmente, eliminar el estudiante
 		jdbcTemplate.update("DELETE FROM estudiante WHERE id_estudiante = ?", idEstudiante);
 	}
 	@Override
